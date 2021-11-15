@@ -1,41 +1,66 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Select,
+    MenuItem
+} from '@mui/material'
 
 
 function MakeYourPicks() {
+
+    const [weekSelect, setWeekSelect] = useState(1);
 
     const dispatch = useDispatch();
     const games = useSelector(store => store.games)
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_GAMES' })
+        dispatch({ type: 'FETCH_GAMES', payload: weekSelect })
     }, [])
+
+    const handleSubmit = (event) => {
+        setWeekSelect(event.target.value)
+        dispatch({ type: 'FETCH_GAMES', payload: weekSelect})
+    } // end handleSubmit
+
+    console.log('this is the current week', weekSelect);
+
     return (
         <>
             <h1>MAKE YOUR PICKS</h1>
             <h2>SELECT WEEK</h2>
-            <select name="" id="">
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-                <option value={6}>6</option>
-                <option value={7}>7</option>
-                <option value={8}>8</option>
-                <option value={9}>9</option>
-                <option value={10}>10</option>
-                <option value={11}>11</option>
-                <option value={12}>12</option>
-                <option value={13}>13</option>
-                <option value={14}>14</option>
-                <option value={15}>15</option>
-                <option value={16}>16</option>
-                <option value={17}>17</option>
-                <option value={18}>18</option>
-            </select>
+
+                <form>
+                <Select name="" id=""
+                value={weekSelect}
+                    onChange={(event) => handleSubmit(event)}>
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={6}>6</MenuItem>
+                    <MenuItem value={7}>7</MenuItem>
+                    <MenuItem value={8}>8</MenuItem>
+                    <MenuItem value={9}>9</MenuItem>
+                    <MenuItem value={10}>10</MenuItem>
+                    <MenuItem value={11}>11</MenuItem>
+                    <MenuItem value={12}>12</MenuItem>
+                    <MenuItem value={13}>13</MenuItem>
+                    <MenuItem value={14}>14</MenuItem>
+                    <MenuItem value={15}>15</MenuItem>
+                    <MenuItem value={16}>16</MenuItem>
+                    <MenuItem value={17}>17</MenuItem>
+                    <MenuItem value={18}>18</MenuItem>
+                </Select>
+                </form>
+
             <TableContainer>
                 <Table>
                     <TableHead>
@@ -53,9 +78,11 @@ function MakeYourPicks() {
                                 <TableRow key={game.id}>
                                     <TableCell>{game.visitor_score}</TableCell>
                                     <TableCell>{game.visitor_id}</TableCell>
-                                    <TableCell>at</TableCell>
+                                    <TableCell>@</TableCell>
                                     <TableCell>{game.home_id}</TableCell>
                                     <TableCell>{game.home_score}</TableCell>
+                                    <TableCell>{game.game_date}</TableCell>
+                                    <TableCell>{game.game_time}</TableCell>
                                 </TableRow>
                             )
                         })}

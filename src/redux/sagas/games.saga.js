@@ -5,10 +5,10 @@ function* gamesSaga() {
     yield takeLatest('FETCH_GAMES', fetchGames)
 }
 
-function* fetchGames() {
-    console.log('inside fetchGames');
+function* fetchGames(action) {
+    console.log('inside fetchGames', action.payload);
     try {
-        const response = yield axios.get('/api/games')
+        const response = yield axios.get(`/api/games/${action.payload}`)
         console.log('this is response.data', response.data);
         yield put({ type: 'SET_GAMES', payload: response.data })
 
