@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import MakeYourPicks from '../MakeYourPicks/MakeYourPicks';
 
 import './App.css';
 
@@ -66,6 +67,13 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+          exact
+          path="/picks"
+          >
+            <MakeYourPicks />
           </ProtectedRoute>
 
           <Route
