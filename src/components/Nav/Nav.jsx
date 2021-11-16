@@ -32,6 +32,7 @@ function Nav() {
               Info Page
             </Link>
 
+            <Link className="navLink" to="/picks">Make Your Picks</Link>
             <LogOutButton className="navLink" />
           </>
         )}

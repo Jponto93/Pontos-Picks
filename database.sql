@@ -18,6 +18,12 @@ CREATE TABLE "teams" (
     "team_name" VARCHAR(25)
 );
 
+DROP TABLE "picks";
+CREATE TABLE "picks" (
+    "id" SERIAL PRIMARY KEY,
+    "schedule_id" INT REFERENCES 
+)
+
 
 INSERT INTO "teams" ("team_id", "conference", "division", "city", "team_name")
 VALUES
