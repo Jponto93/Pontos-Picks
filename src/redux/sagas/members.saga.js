@@ -10,7 +10,7 @@ function* fetchMembers () {
     try {
         const response = yield axios.get('/api/members')
         console.log('this is response.data', response.data);
-        put({ type: 'SET_MEMBER_LIST', payload: response.data })
+        yield put({ type: 'SET_MEMBERS_LIST', payload: response.data })
     } catch (error) {
         console.log('error in membersSaga', error);
     }
