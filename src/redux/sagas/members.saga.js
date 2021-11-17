@@ -8,7 +8,9 @@ function* membersSaga () {
 function* fetchMembers () {
     console.log('inside fetchMembers');
     try {
-        yield axios.get('/api/members')
+        const response = yield axios.get('/api/members')
+        console.log('this is response.data', response.data);
+        put({ type: 'SET_MEMBER_LIST', payload: response.data })
     } catch (error) {
         console.log('error in membersSaga', error);
     }
