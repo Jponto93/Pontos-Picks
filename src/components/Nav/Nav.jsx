@@ -37,6 +37,10 @@ function Nav() {
               Make Your Picks
             </Link>
 
+            <Link className="navLink" to="/leaderboard">
+              Leaderboards
+            </Link>
+
             {user.access_level > 0 && (
               <Link className="navLink" to="/admin">
                 Admin
