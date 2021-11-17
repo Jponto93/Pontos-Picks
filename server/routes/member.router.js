@@ -1,4 +1,5 @@
 const express = require('express');
+const { resetWarningCache } = require('prop-types');
 const pool = require('../modules/pool');
 const router = express.Router();
 
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
     const sqlText = `
     SELECT "id", "username", "email", "pick_score" FROM "user"
     WHERE "access_level" = 0
-    ORDER BY "pick_score" DESC;
+    ORDER BY "username" ASC;
     `;
 
     pool.query(sqlText)
@@ -31,6 +32,25 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
+});
+
+router.put('/:id', (req, res) => {
+  let scoreToUpdate = req.body.score
+  let idToUpdate = req.params.id;
+
+  const sqlText = `
+  UPDATE "user" 
+  SET "pick_score" = $1
+  WHERE "user"."id" = $2;
+  `;
+  let values = [scoreToUpdate, idToUpdate]
+  pool.query(sqlText, values)
+    .then(response => {
+      res.sendStatus(201);
+    })
+    .catch(err => {
+      res.sendStatus(500);
+    })
 });
 
 module.exports = router;

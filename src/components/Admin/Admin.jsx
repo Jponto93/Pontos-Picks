@@ -8,23 +8,15 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    Select,
-    MenuItem,
 } from '@mui/material'
 import AdminTableItem from "../AdminTableItem/AdminTableItem";
 
 
 function Admin() {
 
-    // const [newScore, setNewScore] = useState(0);
-
     const dispatch = useDispatch();
 
     const membersList = useSelector(store => store.members)
-
-    // const handleClick = (event, id) => {
-    //     console.log('clicked id #:', id);
-    // } // end handleClick
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MEMBERS' })
@@ -47,20 +39,9 @@ function Admin() {
                     </TableHead>
                     <TableBody>
                         {membersList.map(member => (
-                            // <tr key={member.id}>
-                            //     <TableCell>{member.username}</TableCell>
-                            //     <TableCell>{member.email}</TableCell>
-                            //     <TableCell>{member.pick_score}</TableCell>
-                            //     <TableCell>
-                            //         <input 
-                            //         type="number"
-                            //         onChange={(event) => handleClick(event.target.value, member.id)}  />
-                            //     </TableCell>
-                            //     <TableCell>
-                            //         <button onClick={handleClick}>SAVE</button>
-                            //     </TableCell>
-                            // </tr>
-                            <AdminTableItem member={member}/>
+                            <AdminTableItem 
+                            key={member.id} 
+                            member={member}/>
                         ))}
                     </TableBody>
                 </Table>
