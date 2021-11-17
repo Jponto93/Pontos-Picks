@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
   // get all users that are not the admin
     const sqlText = `
-    SELECT * FROM "user"
+    SELECT "username", "email", "pick_score" FROM "user"
     WHERE "access_level" = 0;
     `;
 
