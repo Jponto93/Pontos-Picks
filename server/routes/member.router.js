@@ -11,8 +11,9 @@ router.get('/', (req, res) => {
 
   // get all users that are not the admin
     const sqlText = `
-    SELECT "username", "email", "pick_score" FROM "user"
-    WHERE "access_level" = 0;
+    SELECT "id", "username", "email", "pick_score" FROM "user"
+    WHERE "access_level" = 0
+    ORDER BY "pick_score" DESC;
     `;
 
     pool.query(sqlText)
