@@ -21,6 +21,7 @@ function* deleteMember (action) {
     let idToDelete = action.payload
     try {
         yield axios.delete(`/api/members/${idToDelete}`)
+        yield put({ type: 'FETCH_MEMBERS' })
     } catch (error) {
         console.log('Error in deleteMember saga', error);
     }

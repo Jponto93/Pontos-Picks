@@ -53,4 +53,20 @@ router.put('/:id', (req, res) => {
     })
 });
 
+router.delete('/:id', (req, res) => {
+  let idToUpdate = req.params.id;
+  const sqlText = `
+  DELETE FROM "user"
+  WHERE "user"."id" = $1;
+  `;
+  let values = [idToUpdate]
+  pool.query(sqlText, values)
+    .then(response => {
+      res.sendStatus(200);
+    })
+    .catch(err => {
+      res.sendStatus(500);
+    })
+})
+
 module.exports = router;
