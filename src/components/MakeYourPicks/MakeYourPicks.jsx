@@ -20,7 +20,7 @@ function MakeYourPicks() {
     const dispatch = useDispatch();
     const games = useSelector(store => store.games)
 
-    const handlePickSubmit = (action) => {
+    const handlePickSubmit = () => {
         console.log('clicked submit');
         dispatch({ type: 'SUBMIT_PICK_LIST', payload: pickList })
     } // end handleSubmit
