@@ -19,8 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import MakeYourPicks from '../MakeYourPicks/MakeYourPicks';
 
 import './App.css';
+import Admin from '../Admin/Admin';
 
 function App() {
   const dispatch = useDispatch();
@@ -68,6 +70,13 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+          <ProtectedRoute
+          exact
+          path="/picks"
+          >
+            <MakeYourPicks />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
@@ -95,6 +104,12 @@ function App() {
               <RegisterPage />
             }
           </Route>
+
+          <ProtectedRoute>
+            {user.access_level === 1 ?
+            <Admin /> : <Redirect to="/home"/>
+            }
+          </ProtectedRoute>
 
           <Route
             exact
