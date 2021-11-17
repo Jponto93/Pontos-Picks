@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function* membersSaga () {
     yield takeLatest('FETCH_MEMBERS', fetchMembers)
+    yield takeLatest('DELETE_MEMBER', deleteMember)
 } // end membersSaga;
 
 function* fetchMembers () {
@@ -15,5 +16,14 @@ function* fetchMembers () {
         console.log('error in membersSaga', error);
     }
 } // end fetchMembers
+
+function* deleteMember (action) {
+    let idToDelete = action.payload
+    try {
+        yield axios.delete(`/api/members/${idToDelete}`)
+    } catch (error) {
+        console.log('Error in deleteMember saga', error);
+    }
+} // end deleteMember
 
 export default membersSaga;

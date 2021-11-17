@@ -30,6 +30,7 @@ function Admin() {
                 <Table>
                     <TableHead>
                         <TableRow>
+                            <TableCell>DELETE</TableCell>
                             <TableCell>USERNAME</TableCell>
                             <TableCell>EMAIL</TableCell>
                             <TableCell>CURRENT SCORE</TableCell>
