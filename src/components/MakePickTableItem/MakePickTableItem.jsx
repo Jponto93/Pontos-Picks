@@ -17,7 +17,7 @@ function MakePickTableItem({ game }) {
             type: 'ADD_PICK_SELECTION',
             payload: {
                 pick: event.target.innerHTML,
-                schedule_id: game.id,
+                schedule_id: String(game.id),
             }
         })
     } // end teamSelector
