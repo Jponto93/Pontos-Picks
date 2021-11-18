@@ -24,10 +24,10 @@ router.get('/', (req, res) => {
         for (let i = 0; i < picks.length; i++) {
             console.log('you are in the loop inside sqlInsert');
             const sqlText = `
-            INSERT INTO "picks" ("user_id", "schedule_id", "pick")
+            INSERT INTO "picks" ("user_id", "schedule_id", "pick", "week")
             VALUES 
-            ($1, $2, $3)`;
-            await connection.query(sqlText, [id, picks[i].schedule_id, picks[i].pick])
+            ($1, $2, $3, $4)`;
+            await connection.query(sqlText, [id, picks[i].schedule_id, picks[i].pick, picks[i].week])
         } // end loop
     } // end sqlInserter
 

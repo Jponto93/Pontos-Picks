@@ -18,6 +18,7 @@ function MakePickTableItem({ game }) {
             payload: {
                 pick: event.target.innerHTML,
                 schedule_id: String(game.id),
+                week: game.week
             }
         })
     } // end teamSelector
