@@ -1,5 +1,5 @@
 const express = require('express');
-const { resetWarningCache } = require('prop-types');
+// const { resetWarningCache } = require('prop-types');
 const pool = require('../modules/pool');
 const router = express.Router();
 
