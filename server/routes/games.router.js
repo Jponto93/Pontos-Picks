@@ -33,14 +33,14 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
   const visitor = req.body.visitor_score
   const home = req.body.home_score
   const idToUpdate = req.params.id
-  const week = req.body.week
+  const result = req.body.result
 
   const sqlText = `
   UPDATE "schedule"
-  SET "visitor_score" = $1, "home_score" = $2
-  WHERE "id" = $3;
+  SET "visitor_score" = $1, "home_score" = $2, "result" = $3
+  WHERE "id" = $4;
   `;
-  const values = [visitor, home, idToUpdate]
+  const values = [visitor, home, result, idToUpdate]
   pool.query(sqlText, values)
     .then(response => {
       res.sendStatus(201);

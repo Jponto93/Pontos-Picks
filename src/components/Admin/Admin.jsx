@@ -90,6 +90,7 @@ function Admin() {
                                     <th>HOME</th>
                                     <th>HOME SCORE</th>
                                     <th>UPDATE HOME</th>
+                                    <th>RESULT</th>
                                     <th>SAVE SCORES</th>
                                 </TableRow>
                             </TableHead>
