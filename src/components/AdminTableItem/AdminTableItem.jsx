@@ -24,6 +24,7 @@ function AdminTableItem ({member}) {
     return (
         <tr key={member.id}>
         <TableCell className="center"><button onClick={() => handleDeleteClick(member.id)}>REMOVE</button></TableCell>
+        <TableCell><button>MORE DETAILS</button></TableCell>
         <TableCell className="center">{member.username}</TableCell>
         <TableCell className="center">{member.email}</TableCell>
         <TableCell className="center">{member.pick_score}</TableCell>

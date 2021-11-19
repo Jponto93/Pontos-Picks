@@ -1,60 +1,37 @@
-
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import './Admin.css';
+// import './Admin.css';
 import {
     Table,
     TableBody,
     TableContainer,
     TableHead,
     TableRow,
+    Select,
+    MenuItem
 } from '@mui/material'
-import AdminTableItem from "../AdminTableItem/AdminTableItem";
-import AdminEditScores from "../AdminEditScores/AdminEditScores";
-import { useEffect } from "react";
+import AdminGameItem from "../AdminGameItem/AdminGameItem";
+// import AdminEditScores from "../AdminEditScores/AdminEditScores";
 
 
-function Admin() {
+function AdminEditScores () {
 
     const dispatch = useDispatch();
 
-    // const [editScores, setEditScores] = useState(false)
+    const [editScores, setEditScores] = useState(false);
 
-    const membersList = useSelector(store => store.members)
-    // const games = useSelector(store => store.games)
+    // const membersList = useSelector(store => store.members)
+    const games = useSelector(store => store.games)
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MEMBERS' })
     }, [])
 
-    return (
-        <>  
-            <h1>WELCOME, ADMIN</h1>
-            <h2>MEMBER LIST</h2>
-            <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <th>DELETE</th>
-                            <th>DETAILS</th>
-                            <th>USERNAME</th>
-                            <th>EMAIL</th>
-                            <th>CURRENT SCORE</th>
-                            <th>NEW SCORE</th>
-                            <th>SAVE SCORE</th>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {membersList.map(member => (
-                            <AdminTableItem
-                                key={member.id}
-                                member={member} />
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            {/* <button onClick={() => setEditScores(!editScores)}>EDIT GAMES</button> */}
-            <AdminEditScores />
-            {/* {editScores ?
+    return ( 
+        
+        <>
+        <button onClick={() => setEditScores(!editScores)}>EDIT GAMES</button>
+        {editScores ?
                 <>  
                     <form>
                         <Select name="week" id=""
@@ -104,11 +81,9 @@ function Admin() {
                     </TableContainer>
                 </>
                 :
-                <p></p>} */}
+                <p></p>}
         </>
-
-
     )
-} // end Admin
+} // end AdminEditScores
 
-export default Admin;
+export default AdminEditScores;
