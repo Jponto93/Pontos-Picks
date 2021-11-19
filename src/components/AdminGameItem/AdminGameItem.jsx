@@ -6,6 +6,7 @@ function AdminGameItem({ game }) {
 
     const [awayScore, setAwayScore] = useState(0);
     const [homeScore, setHomeScore] = useState(0);
+    const [result, setResult] = useState('')
 
 
     const dispatch = useDispatch();
@@ -17,7 +18,8 @@ function AdminGameItem({ game }) {
                 visitor_score: Number(awayScore),
                 home_score: Number(homeScore),
                 game_id: id,
-                week: week
+                week: week,
+                result: result.toUpperCase()
             }
         })
     } // end handleSaveClick
@@ -40,6 +42,8 @@ function AdminGameItem({ game }) {
                 <input type="number"
                     onChange={(event) => setHomeScore(event.target.value)} />
             </TableCell>
+            <TableCell><input maxLength="3" type="text" 
+            onChange={(event) => setResult(event.target.value)} /></TableCell>
             <TableCell className="center"><button onClick={() => handleSaveClick(game.id, game.week)}>SAVE</button></TableCell>
         </TableRow>
     )
