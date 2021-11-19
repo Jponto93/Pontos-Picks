@@ -33,7 +33,7 @@ function AdminEditScores () {
         <button onClick={() => setEditScores(!editScores)}>EDIT GAMES</button>
         {editScores ?
                 <>  
-                    <form>
+                    {/* <form>
                         <Select name="week" id=""
                             onChange={((event) => dispatch({ type: 'FETCH_GAMES', payload: event.target.value }))}>
                             <MenuItem value={1}>1</MenuItem>
@@ -55,7 +55,7 @@ function AdminEditScores () {
                             <MenuItem value={17}>17</MenuItem>
                             <MenuItem value={18}>18</MenuItem>
                         </Select>
-                    </form>
+                    </form> */}
                     <TableContainer>
                         <Table>
                             <TableHead>
