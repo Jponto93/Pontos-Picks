@@ -62,14 +62,14 @@ function MakeYourPicks() {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>AWAY SCORE</TableCell>
-                                <TableCell>AWAY TEAM</TableCell>
-                                <TableCell></TableCell>
-                                <TableCell>HOME TEAM</TableCell>
-                                <TableCell>HOME SCORE</TableCell>
-                                <TableCell>DATE</TableCell>
-                                <TableCell>TIME</TableCell>
-                                <TableCell>YOUR PICK</TableCell>
+                                <TableCell className="center">AWAY SCORE</TableCell>
+                                <TableCell className="center">AWAY TEAM</TableCell>
+                                <TableCell className="center"></TableCell>
+                                <TableCell className="center">HOME TEAM</TableCell>
+                                <TableCell className="center">HOME SCORE</TableCell>
+                                <TableCell className="center">DATE</TableCell>
+                                <TableCell className="center">TIME</TableCell>
+                                <TableCell className="center">YOUR PICK</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>

@@ -23,16 +23,16 @@ function AdminTableItem ({member}) {
 
     return (
         <tr key={member.id}>
-        <TableCell><button onClick={() => handleDeleteClick(member.id)}>REMOVE</button></TableCell>
-        <TableCell>{member.username}</TableCell>
-        <TableCell>{member.email}</TableCell>
-        <TableCell>{member.pick_score}</TableCell>
-        <TableCell>
+        <TableCell className="center"><button onClick={() => handleDeleteClick(member.id)}>REMOVE</button></TableCell>
+        <TableCell className="center">{member.username}</TableCell>
+        <TableCell className="center">{member.email}</TableCell>
+        <TableCell className="center">{member.pick_score}</TableCell>
+        <TableCell className="center">
             <input 
             type="number"
             onChange={(event) => setNewScore(event.target.value)}  />
         </TableCell>
-        <TableCell>
+        <TableCell className="center">
             <button onClick={() => handleSaveClick(member.id)}>SAVE</button>
         </TableCell>
     </tr>
