@@ -1,6 +1,7 @@
 import { TableCell, TableRow } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import './MakePickTableItem.css';
 
 
 function MakePickTableItem({ game }) {
@@ -25,14 +26,17 @@ function MakePickTableItem({ game }) {
 
     return (
         <TableRow key={game.id}>
-            <TableCell>{game.visitor_score}</TableCell>
-            <TableCell onClick={(event) => teamSelector(event, game.id)}>{game.visitor_id}</TableCell>
-            <TableCell>@</TableCell>
-            <TableCell onClick={(event) => teamSelector(event, game.id)}>{game.home_id}</TableCell>
-            <TableCell>{game.home_score}</TableCell>
-            <TableCell>{game.game_date}</TableCell>
-            <TableCell>{game.game_time}</TableCell>
-            <TableCell>{selectedTeam}</TableCell>
+            <TableCell className="center">{game.visitor_score}</TableCell>
+            <TableCell className="center"
+            onClick={(event) => teamSelector(event, game.id)}>{game.visitor_id}</TableCell>
+            <TableCell className="center">@</TableCell>
+            <TableCell className="center"
+            onClick={(event) => teamSelector(event, game.id)}>{game.home_id}</TableCell>
+            <TableCell className="center">{game.home_score}</TableCell>
+            <TableCell className="center">{game.game_date}</TableCell>
+            <TableCell className="center">{game.game_time}</TableCell>
+            <TableCell className="center">{selectedTeam}</TableCell>
+            <TableCell>{game.result ? game.result : <p>TBD</p>}</TableCell>
         </TableRow>
     )
 } // end MakePickTableItem

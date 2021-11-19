@@ -7,6 +7,7 @@ import pickListSaga from './pick.saga';
 import membersSaga from './members.saga';
 import updateScoreSaga from './update.score.saga';
 import leaderboardSaga from './leaderboard.saga';
+import updateGameSaga from './update.game.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     membersSaga(),
     updateScoreSaga(),
     leaderboardSaga(),
+    updateGameSaga(),
   ]);
 }
