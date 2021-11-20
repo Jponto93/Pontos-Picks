@@ -6,18 +6,18 @@ const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
     // GET route code here
-     const id = req.params.id
-     const week = req.body.week
-     console.log('id:', id, ' and week:', week);
+    console.log('you made in through to member.detail router');
+     const {id, week} = req.query
+     console.log('req.query', req.query);
     
     // get all users that are not the admin
       const sqlText = `
-      SELECT * FROM "picks" 
-      WHERE "user_id" = $1
-      `;
-      pool.query(sqlText, [id])
+        SELECT * FROM "picks"
+        WHERE "user_id" = $1 AND "week" = $2;
+        `;
+      pool.query(sqlText, [Number(id), Number(week)])
       .then(response => {
           console.log('this is response.rows', response.rows);
           res.send(response.rows)

@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
             VALUES 
             (1$, $2, $3)`;
     } catch (error) {
-
+        
     }
 
     let values = [req.user.id, req.body.schedule_id, req.body.pick]

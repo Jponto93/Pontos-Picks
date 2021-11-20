@@ -1,17 +1,17 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
+
 function* fetchMemberWeekSaga () {
     yield takeLatest('FETCH_MEMBER_WEEK', fetchMemberWeek)
 } // end fetchMemberWeek
 
 function* fetchMemberWeek (action) {
-    const week = action.payload.week
-    const idToFind = action.payload.id
-    console.log('in fetchMemberWeek, week is:', week, ' and idToFind is:', idToFind);
+    const { week } = action.payload
     try {
-        yield axios.get(`/api/details/${idToFind}`, week)
-        yield put({ type: 'SET_DETAILS', payload: action.payload})
+        const response = yield axios.get(`/api/details?id=${action.payload.id}&week=${week}`)
+        console.log('you have made it this far');
+        yield put({ type: 'SET_DETAILS', payload: response.data})
     } catch (error) {
         console.log('error in fetch details', error);
     }
