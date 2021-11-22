@@ -4,6 +4,11 @@ import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import pickListSaga from './pick.saga';
+import membersSaga from './members.saga';
+import updateScoreSaga from './update.score.saga';
+import leaderboardSaga from './leaderboard.saga';
+import updateGameSaga from './update.game.saga';
+import fetchMemberWeekSaga from './admin.member.week';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -19,5 +24,10 @@ export default function* rootSaga() {
     userSaga(),
     gamesSaga(),
     pickListSaga(),
+    membersSaga(),
+    updateScoreSaga(),
+    leaderboardSaga(),
+    updateGameSaga(),
+    fetchMemberWeekSaga(),
   ]);
 }
