@@ -1,6 +1,7 @@
 import { TableCell, TableRow } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import './MakePickTableItem.css';
 
 
 function MakePickTableItem({ game }) {
@@ -17,7 +18,8 @@ function MakePickTableItem({ game }) {
             type: 'ADD_PICK_SELECTION',
             payload: {
                 pick: event.target.innerHTML,
-                schedule_id: game.id,
+                schedule_id: String(game.id),
+                week: game.week
             }
         })
     } // end teamSelector
@@ -34,6 +36,7 @@ function MakePickTableItem({ game }) {
             <TableCell className="center">{game.game_date}</TableCell>
             <TableCell className="center">{game.game_time}</TableCell>
             <TableCell className="center">{selectedTeam}</TableCell>
+            <TableCell>{game.result ? game.result : <p>TBD</p>}</TableCell>
         </TableRow>
     )
 } // end MakePickTableItem

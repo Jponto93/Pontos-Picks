@@ -1,12 +1,15 @@
 const express = require('express');
-const { resetWarningCache } = require('prop-types');
+// const { resetWarningCache } = require('prop-types');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('hello from member router');
   // GET route code here
 
@@ -57,7 +60,7 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
   let scoreToUpdate = req.body.score
   let idToUpdate = req.params.id;
 
@@ -76,7 +79,7 @@ router.put('/:id', (req, res) => {
     })
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   let idToUpdate = req.params.id;
   const sqlText = `
   DELETE FROM "user"

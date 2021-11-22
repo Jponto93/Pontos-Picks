@@ -6,6 +6,7 @@ import userSaga from './user.saga';
 import pickListSaga from './pick.saga';
 import membersSaga from './members.saga';
 import updateScoreSaga from './update.score.saga';
+import leaderboardSaga from './leaderboard.saga';
 import updateGameSaga from './update.game.saga';
 import fetchMemberWeekSaga from './admin.member.week';
 
@@ -25,6 +26,7 @@ export default function* rootSaga() {
     pickListSaga(),
     membersSaga(),
     updateScoreSaga(),
+    leaderboardSaga(),
     updateGameSaga(),
     fetchMemberWeekSaga(),
   ]);

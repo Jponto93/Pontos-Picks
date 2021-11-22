@@ -11,6 +11,7 @@ import {
     MenuItem,
 } from '@mui/material'
 import MakePickTableItem from "../MakePickTableItem/MakePickTableItem";
+import './MakeYourPick.css';
 
 
 function MakeYourPicks() {
@@ -70,6 +71,7 @@ function MakeYourPicks() {
                                 <TableCell className="center">DATE</TableCell>
                                 <TableCell className="center">TIME</TableCell>
                                 <TableCell className="center">YOUR PICK</TableCell>
+                                <TableCell>RESULT</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
