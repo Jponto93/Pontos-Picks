@@ -8,6 +8,7 @@ import membersSaga from './members.saga';
 import updateScoreSaga from './update.score.saga';
 import leaderboardSaga from './leaderboard.saga';
 import updateGameSaga from './update.game.saga';
+import fetchMemberWeekSaga from './admin.member.week';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -27,5 +28,6 @@ export default function* rootSaga() {
     updateScoreSaga(),
     leaderboardSaga(),
     updateGameSaga(),
+    fetchMemberWeekSaga(),
   ]);
 }

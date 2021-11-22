@@ -7,9 +7,11 @@ import './MakePickTableItem.css';
 function MakePickTableItem({ game }) {
 
     const [selectedTeam, setSelectedTeam] = useState('Pick a team');
-
     const dispatch = useDispatch();
 
+    // teams
+    // const teams = useSelector(store => store.teams)
+    // teams.filter((team) => team.team_id === game.visitor_id || team.team_id === game.home_id)
 
     const teamSelector = (event) => {
         setSelectedTeam(event.target.innerHTML)

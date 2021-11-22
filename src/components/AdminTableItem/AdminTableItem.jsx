@@ -1,10 +1,11 @@
 import { TableCell } from '@mui/material'
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function AdminTableItem ({member}) {
 
     const dispatch = useDispatch();
+    const week = useSelector(store => store.week)
 
     const handleSaveClick = (id) => {
         console.log('clicked id #:', id);
@@ -24,6 +25,7 @@ function AdminTableItem ({member}) {
     return (
         <tr key={member.id}>
         <TableCell className="center"><button onClick={() => handleDeleteClick(member.id)}>REMOVE</button></TableCell>
+        <TableCell><button onClick={() => dispatch({ type: 'FETCH_MEMBER_WEEK', payload: { id: member.id, week: week} })}>MORE DETAILS</button></TableCell>
         <TableCell className="center">{member.username}</TableCell>
         <TableCell className="center">{member.email}</TableCell>
         <TableCell className="center">{member.pick_score}</TableCell>

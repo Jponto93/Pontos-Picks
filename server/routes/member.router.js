@@ -30,6 +30,29 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+// this is route for admin additional details 
+// router.get('/:id', (req, res) => {
+// // GET route code here
+//  const id = req.params.id
+//  const week = req.body.week
+//  console.log('id:', id, ' and week:', week);
+
+// // get all users that are not the admin
+//   const sqlText = `
+//   SELECT "id", "username", "email", "pick_score" FROM "user"
+//   WHERE "access_level" = 0
+//   ORDER BY "username" ASC;
+//   `;
+
+//   pool.query(sqlText)
+//   .then(response => {
+//       console.log('this is response.rows', response.rows);
+//       res.send(response.rows)
+//   })
+//   .catch(err => {
+//       console.log('error in member get', err);
+//   })
+// });
 /**
  * POST route template
  */
