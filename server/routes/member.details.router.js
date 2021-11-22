@@ -17,7 +17,8 @@ router.get('/', (req, res) => {
         SELECT * FROM "picks"
         WHERE "user_id" = $1 AND "week" = $2;
         `;
-    const values = [id, week]
+    const values = [Number(id), Number(week)]
+    console.log('these are values:', values);
     pool.query(sqlText, values)
         .then(response => {
             console.log('this is response.rows', response.rows);

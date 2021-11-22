@@ -1,6 +1,6 @@
 
 
-const weekReducer = (state = 1, action) => {
+const weekReducer = (state = 0, action) => {
     switch(action.type){
         case 'SET_SELECTED_WEEK':
             return action.payload;

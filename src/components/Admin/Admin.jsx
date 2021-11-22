@@ -22,6 +22,7 @@ function Admin() {
     // const [editScores, setEditScores] = useState(false)
 
     const membersList = useSelector(store => store.members)
+    const week = useSelector(store => store.week)
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MEMBERS' })
@@ -32,7 +33,8 @@ function Admin() {
             <h1>WELCOME, ADMIN</h1>
             <h2>MEMBER LIST</h2>
             <form>
-                <Select name="week" id=""
+                <Select name="" id=""
+                    value={week}
                     onChange={((event) => dispatch({ type: 'SET_SELECTED_WEEK', payload: event.target.value }))}>
                     <MenuItem value={1}>1</MenuItem>
                     <MenuItem value={2}>2</MenuItem>
