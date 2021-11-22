@@ -35,7 +35,7 @@ function MakePickTableItem({ game }) {
             <TableCell className="center"
             onClick={(event) => teamSelector(event, game.id)}>{game.home_id}</TableCell>
             <TableCell className="center">{game.home_score}</TableCell>
-            <TableCell className="center">{game.game_date}</TableCell>
+            <TableCell className="center">{game.game_date.split('T')[0]}</TableCell>
             <TableCell className="center">{game.game_time}</TableCell>
             <TableCell className="center">{selectedTeam}</TableCell>
             <TableCell>{game.result ? game.result : <p>TBD</p>}</TableCell>
