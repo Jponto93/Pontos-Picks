@@ -14,9 +14,11 @@ router.get('/', (req, res) => {
 
     // get all users that are not the admin
     const sqlText = `
-        SELECT * FROM "picks"
-        WHERE "user_id" = $1 AND "week" = $2;
-        `;
+    SELECT "username", "pick", "result", "picks".week FROM "picks"
+    JOIN "schedule" ON "picks".schedule_id = "schedule".id
+    JOIN "user" ON "user".id = "picks".user_id
+    WHERE "user_id" = $1 AND "picks"."week" = $2;
+    `;
     const values = [Number(id), Number(week)]
     console.log('these are values:', values);
     pool.query(sqlText, values)

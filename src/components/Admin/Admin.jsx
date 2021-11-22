@@ -57,6 +57,29 @@ function Admin() {
                     <MenuItem value={18}>18</MenuItem>
                 </Select>
             </form>
+            { details.length > 0 ? 
+            <>
+            <h2>{details[0].username}'s week {details[0].week} picks.</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>PICK</th>
+                        <th>RESULT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {details.map((pick, i) => {
+                        return (
+                            <tr key={i}>
+                                <td>{pick.pick}</td>
+                                <td>{pick.result}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+            </> : <p></p>
+        }
 
             <TableContainer>
                 <Table>
@@ -82,20 +105,7 @@ function Admin() {
             </TableContainer>
             {/* <button onClick={() => setEditScores(!editScores)}>EDIT GAMES</button> */}
             <AdminEditScores />
-            { details.length > 0 ? 
-            <table>
-                <thead>
-                    <tr>
-                        <th>TEST</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>TEST</td>
-                    </tr>
-                </tbody>
-            </table> : <p></p>
-        }
+            
             {/* {editScores ?
                 <>  
                     <form>
