@@ -8,11 +8,13 @@ import {
     TableHead,
     TableRow,
     Select,
-    MenuItem
+    MenuItem,
+    TableCell
 } from '@mui/material'
 import AdminTableItem from "../AdminTableItem/AdminTableItem";
 import AdminEditScores from "../AdminEditScores/AdminEditScores";
 import { useEffect } from "react";
+import AdminDetailTableItem from "../AdminDetailTableItem/AdminDetailTableItem";
 
 
 function Admin() {
@@ -24,6 +26,20 @@ function Admin() {
     const membersList = useSelector(store => store.members)
     const week = useSelector(store => store.week)
     const details = useSelector(store => store.details)
+
+    let points = details.reduce((points, game) => {
+        console.log('inside reduce');
+        if(game.pick === game.result){
+            console.log('inside if statement');
+            return points + 1;
+        } else {
+            return points
+        }
+    }, 0)
+
+    dispatch({ type: 'SET_POINT_COUNT', payload: points })
+
+
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MEMBERS' })
@@ -60,24 +76,24 @@ function Admin() {
             { details.length > 0 ? 
             <>
             <h2>{details[0].username}'s week {details[0].week} picks.</h2>
-            <table>
-                <thead>
-                    <tr>
+            <Table>
+                <TableHead>
+                    <TableRow>
                         <th>PICK</th>
                         <th>RESULT</th>
-                    </tr>
-                </thead>
+                    </TableRow>
+                </TableHead>
                 <tbody>
                     {details.map((pick, i) => {
                         return (
-                            <tr key={i}>
-                                <td>{pick.pick}</td>
-                                <td>{pick.result}</td>
-                            </tr>
+                            <AdminDetailTableItem pick={pick}
+                            i={i}/>
                         )
                     })}
+                    
                 </tbody>
-            </table>
+            </Table>
+            <p>{details[0].username} earned {points} points!</p>
             </> : <p></p>
         }
 
