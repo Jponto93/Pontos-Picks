@@ -23,6 +23,7 @@ function Admin() {
 
     const membersList = useSelector(store => store.members)
     const week = useSelector(store => store.week)
+    const details = useSelector(store => store.details)
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MEMBERS' })
@@ -81,6 +82,20 @@ function Admin() {
             </TableContainer>
             {/* <button onClick={() => setEditScores(!editScores)}>EDIT GAMES</button> */}
             <AdminEditScores />
+            { details.length > 0 ? 
+            <table>
+                <thead>
+                    <tr>
+                        <th>TEST</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TEST</td>
+                    </tr>
+                </tbody>
+            </table> : <p></p>
+        }
             {/* {editScores ?
                 <>  
                     <form>

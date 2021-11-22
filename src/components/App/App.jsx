@@ -105,7 +105,7 @@ function App() {
             }
           </Route>
 
-          <ProtectedRoute>
+          <ProtectedRoute path="/admin">
             {user.access_level === 1 ?
             <Admin /> : <Redirect to="/home"/>
             }
