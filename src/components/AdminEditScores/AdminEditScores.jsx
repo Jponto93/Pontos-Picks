@@ -21,16 +21,27 @@ function AdminEditScores () {
     const [editScores, setEditScores] = useState(false);
 
     // const membersList = useSelector(store => store.members)
-    const games = useSelector(store => store.games)
+    const games = useSelector(store => store.games);
+    const week = useSelector(store => store.week);
+
+    const handleEditGamesClick = () => {
+        dispatch({ type: 'FETCH_GAMES', payload: week})
+
+    }
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_MEMBERS' })
+        try {
+            dispatch({ type: 'FETCH_MEMBERS' })
+        } catch (error) {
+            console.log('error', error);
+        }
+        setEditScores(!editScores);
     }, [])
 
     return ( 
         
         <>
-        <button onClick={() => setEditScores(!editScores)}>EDIT GAMES</button>
+        <button onClick={handleEditGamesClick}>EDIT GAMES</button>
         {editScores ?
                 <>  
                     {/* <form>
