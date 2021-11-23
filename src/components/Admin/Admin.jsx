@@ -3,7 +3,8 @@ import './Admin.css';
 import { useEffect } from "react";
 import WeekSelect from "../WeekSelect/WeekSelect";
 import { useHistory } from "react-router";
-import { Container } from '@mui/material';
+import { Container, Paper, Button } from '@mui/material';
+import { padding } from "@mui/system";
 
 function Admin() {
 
@@ -17,15 +18,22 @@ function Admin() {
 
     return (
         <>
-            <Container>
-                <h1>WELCOME, ADMIN</h1>
-                <h2>SELECT WEEK TO GET STARTED</h2>
-                <WeekSelect />
-                {week > 0 ?
-                    <>
-                        <button onClick={() => history.push('/admin/games')}>UPDATE GAMES</button>
-                        <button onClick={() => history.push('/admin/players')}>UPDATE PLAYERS</button>
-                    </> : <p></p>}
+            <Container className="container">
+                <Paper elevation={24}>
+                    <h1>WELCOME, ADMIN</h1>
+                    <h2>SELECT WEEK TO GET STARTED</h2>
+                    <div className="center">
+                        <WeekSelect />
+                    </div>
+                    {week > 0 ?
+                        <>
+                            <div className="center">
+                                <Button 
+                                variant="outlined" onClick={() => history.push('/admin/games')}>UPDATE GAMES</Button>
+                                <Button variant="outlined" onClick={() => history.push('/admin/players')}>UPDATE PLAYERS</Button>
+                            </div>
+                        </> : <p></p>}
+                </Paper>
             </Container>
         </>
 

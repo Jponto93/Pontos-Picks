@@ -10,7 +10,8 @@ import {
     Select,
     MenuItem,
     Container,
-    InputLabel
+    InputLabel,
+    Paper
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import MakePickTableItem from "../MakePickTableItem/MakePickTableItem";
@@ -28,14 +29,12 @@ function MakeYourPicks() {
 
     const handlePickSubmit = () => {
         console.log('clicked submit');
-        try {
             if(pickList.length === games.length){
             dispatch({ type: 'SUBMIT_PICK_LIST', payload: pickList })
             history.push('/confirmation')
+            } else if(pickList.length < games.length){
+                alert('All games must have a prediction!')
             }
-        } catch (error) {
-            console.log('error in submit', error);
-        }
     } // end handleSubmit
 
     const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -49,8 +48,9 @@ function MakeYourPicks() {
     }));
 
     return (
-        <>
+        <>  
             <Container className="container center">
+                <Paper elevation={24}>
                 <h2>SELECT YOUR WEEK</h2>
                 <form>
                     <InputLabel>WEEK</InputLabel>
@@ -116,6 +116,7 @@ function MakeYourPicks() {
 
                     </TableContainer> : <p></p>
                 }
+                </Paper>
             </Container>
         </>
     )
