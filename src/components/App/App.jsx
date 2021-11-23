@@ -5,14 +5,10 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -20,10 +16,11 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import MakeYourPicks from '../MakeYourPicks/MakeYourPicks';
-
 import './App.css';
 import Admin from '../Admin/Admin';
 import Leaderboard from '../Leaderboard/Leaderboard';
+import AdminPlayerTable from '../AdminPlayerTable/AdminPlayerTable';
+import AdminEditScores from '../AdminEditScores/AdminEditScores';
 
 function App() {
   const dispatch = useDispatch();
@@ -113,9 +110,21 @@ function App() {
             }
           </Route>
 
-          <ProtectedRoute path="/admin">
+          <ProtectedRoute exact path="/admin">
             {user.access_level === 1 ?
             <Admin /> : <Redirect to="/home"/>
+            }
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/admin/players">
+            {user.access_level === 1 ?
+            <AdminPlayerTable /> : <Redirect to="/home"/>
+            }
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/admin/games">
+            {user.access_level === 1 ?
+            <AdminEditScores /> : <Redirect to="/home"/>
             }
           </ProtectedRoute>
 

@@ -6,67 +6,31 @@ import {
     TableBody,
     TableContainer,
     TableHead,
-    TableRow,
-    Select,
-    MenuItem
+    TableRow
 } from '@mui/material'
 import AdminGameItem from "../AdminGameItem/AdminGameItem";
+import WeekSelect from "../WeekSelect/WeekSelect";
+import { useHistory } from "react-router";
 // import AdminEditScores from "../AdminEditScores/AdminEditScores";
 
 
 function AdminEditScores () {
 
     const dispatch = useDispatch();
-
-    const [editScores, setEditScores] = useState(false);
+    const history = useHistory();
 
     // const membersList = useSelector(store => store.members)
     const games = useSelector(store => store.games);
     const week = useSelector(store => store.week);
 
-    const handleEditGamesClick = () => {
-        dispatch({ type: 'FETCH_GAMES', payload: week})
-
-    }
-
     useEffect(() => {
-        try {
-            dispatch({ type: 'FETCH_MEMBERS' })
-        } catch (error) {
-            console.log('error', error);
-        }
-        setEditScores(!editScores);
+        dispatch({ type: 'FETCH_GAMES', payload: week})
     }, [])
 
     return ( 
-        
-        <>
-        <button onClick={handleEditGamesClick}>EDIT GAMES</button>
-        {editScores ?
                 <>  
-                    {/* <form>
-                        <Select name="week" id=""
-                            onChange={((event) => dispatch({ type: 'FETCH_GAMES', payload: event.target.value }))}>
-                            <MenuItem value={1}>1</MenuItem>
-                            <MenuItem value={2}>2</MenuItem>
-                            <MenuItem value={3}>3</MenuItem>
-                            <MenuItem value={4}>4</MenuItem>
-                            <MenuItem value={5}>5</MenuItem>
-                            <MenuItem value={6}>6</MenuItem>
-                            <MenuItem value={7}>7</MenuItem>
-                            <MenuItem value={8}>8</MenuItem>
-                            <MenuItem value={9}>9</MenuItem>
-                            <MenuItem value={10}>10</MenuItem>
-                            <MenuItem value={11}>11</MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={13}>13</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
-                            <MenuItem value={15}>15</MenuItem>
-                            <MenuItem value={16}>16</MenuItem>
-                            <MenuItem value={17}>17</MenuItem>
-                            <MenuItem value={18}>18</MenuItem>
-                        </Select>
-                    </form> */}
+                {/* <WeekSelect /> */}
+                <button onClick={() => history.push('/admin')}>BACK</button>
                     <TableContainer>
                         <Table>
                             <TableHead>
@@ -83,7 +47,7 @@ function AdminEditScores () {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {games.map(game => (
+                                {games?.map(game => (
                                     <AdminGameItem 
                                     key={game.id} game={game}/>
                                 ))}
@@ -91,9 +55,6 @@ function AdminEditScores () {
                         </Table>
                     </TableContainer>
                 </>
-                :
-                <p></p>}
-        </>
     )
 } // end AdminEditScores
 
