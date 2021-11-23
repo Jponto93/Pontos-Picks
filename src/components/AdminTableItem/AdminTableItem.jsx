@@ -24,12 +24,12 @@ function AdminTableItem ({member}) {
 
     return (
         <tr key={member.id}>
-        <TableCell className="center"><button onClick={() => handleDeleteClick(member.id)}>REMOVE</button></TableCell>
+        <TableCell align="center"><button onClick={() => handleDeleteClick(member.id)}>REMOVE</button></TableCell>
         <TableCell><button onClick={() => dispatch({ type: 'FETCH_MEMBER_WEEK', payload: { id: member.id, week: week} })}>PICKS</button></TableCell>
-        <TableCell className="center">{member.username}</TableCell>
-        <TableCell className="center">{member.email}</TableCell>
-        <TableCell className="center">{member.pick_score}</TableCell>
-        <TableCell className="center">
+        <TableCell align="center">{member.username}</TableCell>
+        <TableCell align="center">{member.email}</TableCell>
+        <TableCell align="center">{member.pick_score}</TableCell>
+        <TableCell align="center">
             <input 
             type="number"
             onChange={(event) => setNewScore(event.target.value)}  />

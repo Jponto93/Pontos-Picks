@@ -3,7 +3,8 @@ import {
     Table,
     TableHead,
     TableRow,
-    TableBody
+    TableBody,
+    Container
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import AdminDetailTableItem from '../AdminDetailTableItem/AdminDetailTableItem';
@@ -28,27 +29,29 @@ function AdminDetail() {
 
     return (
         <>
-            <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <th>PICK</th>
-                            <th>RESULT</th>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {details.map((pick, i) => {
-                            return (
-                                <AdminDetailTableItem pick={pick}
-                                    i={i} />
-                            )
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            { details.length > 0 ? 
-            <h2>{details[0].username} scored {points} points!</h2>
-            : <p></p> }
+            <Container>
+                <TableContainer>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <th>PICK</th>
+                                <th>RESULT</th>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {details.map((pick, i) => {
+                                return (
+                                    <AdminDetailTableItem pick={pick}
+                                        i={i} />
+                                )
+                            })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                {details.length > 0 ?
+                    <h2>{details[0].username} scored {points} points!</h2>
+                    : <p></p>}
+            </Container>
         </>
     )
 } // end AdminDetail

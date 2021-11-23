@@ -28,16 +28,16 @@ function MakePickTableItem({ game }) {
 
     return (
         <TableRow key={game.id}>
-            <TableCell className="center">{game.visitor_score}</TableCell>
-            <TableCell className="center"
+            <TableCell align="center">{game.visitor_score}</TableCell>
+            <TableCell align="center"
             onClick={(event) => teamSelector(event, game.id)}>{game.visitor_id}</TableCell>
-            <TableCell className="center">@</TableCell>
-            <TableCell className="center"
+            <TableCell align="center">vs.</TableCell>
+            <TableCell align="center"
             onClick={(event) => teamSelector(event, game.id)}>{game.home_id}</TableCell>
-            <TableCell className="center">{game.home_score}</TableCell>
-            <TableCell className="center">{game.game_date.split('T')[0]}</TableCell>
-            <TableCell className="center">{game.game_time}</TableCell>
-            <TableCell className="center">{selectedTeam}</TableCell>
+            <TableCell align="center">{game.home_score}</TableCell>
+            <TableCell align="center">{game.game_date.split('T')[0]}</TableCell>
+            <TableCell align="center">{game.game_time}</TableCell>
+            <TableCell align="center">{selectedTeam}</TableCell>
             <TableCell>{game.result ? game.result : <p>TBD</p>}</TableCell>
         </TableRow>
     )
