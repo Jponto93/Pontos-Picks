@@ -6,7 +6,8 @@ import {
     TableBody,
     TableContainer,
     TableHead,
-    TableRow
+    TableRow,
+    Container
 } from '@mui/material'
 import AdminGameItem from "../AdminGameItem/AdminGameItem";
 import WeekSelect from "../WeekSelect/WeekSelect";
@@ -14,7 +15,7 @@ import { useHistory } from "react-router";
 // import AdminEditScores from "../AdminEditScores/AdminEditScores";
 
 
-function AdminEditScores () {
+function AdminEditScores() {
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -24,37 +25,38 @@ function AdminEditScores () {
     const week = useSelector(store => store.week);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_GAMES', payload: week})
+        dispatch({ type: 'FETCH_GAMES', payload: week })
     }, [])
 
-    return ( 
-                <>  
-                {/* <WeekSelect /> */}
+    return (
+        <>
+            <Container>
                 <button onClick={() => history.push('/admin')}>BACK</button>
-                    <TableContainer>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <th>UPDATE AWAY</th>
-                                    <th>AWAY SCORE</th>
-                                    <th>AWAY</th>
-                                    <th>@</th>
-                                    <th>HOME</th>
-                                    <th>HOME SCORE</th>
-                                    <th>UPDATE HOME</th>
-                                    <th>RESULT</th>
-                                    <th>SAVE SCORES</th>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {games?.map(game => (
-                                    <AdminGameItem 
-                                    key={game.id} game={game}/>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </>
+                <TableContainer>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <th>UPDATE AWAY</th>
+                                <th>AWAY SCORE</th>
+                                <th>AWAY</th>
+                                <th>@</th>
+                                <th>HOME</th>
+                                <th>HOME SCORE</th>
+                                <th>UPDATE HOME</th>
+                                <th>RESULT</th>
+                                <th>SAVE SCORES</th>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {games?.map(game => (
+                                <AdminGameItem
+                                    key={game.id} game={game} />
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Container>
+        </>
     )
 } // end AdminEditScores
 

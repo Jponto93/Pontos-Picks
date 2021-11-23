@@ -1,16 +1,15 @@
 import {
     TableRow,
-    TableCell
-} from '@mui/material'
-import { useDispatch } from 'react-redux'
+    TableCell,
+} from '@mui/material';
 
 function AdminDetailTableItem ({pick, i}) {
 
     return (
         <>
         <TableRow key={i}>
-            <TableCell className="center">{pick.pick}</TableCell>
-            <TableCell className="center">{pick.result}</TableCell>
+            <TableCell align="center">{pick.pick}</TableCell>
+            <TableCell align="center">{pick.result}</TableCell>
         </TableRow>
         </>
     )

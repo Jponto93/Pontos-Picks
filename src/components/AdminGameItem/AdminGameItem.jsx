@@ -29,16 +29,16 @@ function AdminGameItem({ game }) {
     return (
        
         <TableRow key={game.id}>
-            <TableCell className="center">
+            <TableCell>
                 <input type="number"
                     onChange={(event) => setAwayScore(event.target.value)} />
             </TableCell>
-            <TableCell>{game.visitor_score}</TableCell>
-            <TableCell>{game.visitor_id}</TableCell>
-            <TableCell>@</TableCell>
-            <TableCell>{game.home_id}</TableCell>
-            <TableCell>{game.home_score}</TableCell>
-            <TableCell>
+            <TableCell className="center">{game.visitor_score}</TableCell>
+            <TableCell className="center">{game.visitor_id}</TableCell>
+            <TableCell className="center">@</TableCell>
+            <TableCell className="center">{game.home_id}</TableCell>
+            <TableCell className="center">{game.home_score}</TableCell>
+            <TableCell className="center">
                 <input type="number"
                     onChange={(event) => setHomeScore(event.target.value)} />
             </TableCell>
