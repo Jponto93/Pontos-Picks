@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './MakePickTableItem.css';
 
-
 function MakePickTableItem({ game }) {
 
     const [selectedTeam, setSelectedTeam] = useState('Pick a team');
@@ -26,6 +25,7 @@ function MakePickTableItem({ game }) {
         })
     } // end teamSelector
 
+
     return (
         <TableRow key={game.id}>
             <TableCell align="center">{game.visitor_score}</TableCell>
@@ -37,8 +37,9 @@ function MakePickTableItem({ game }) {
             <TableCell align="center">{game.home_score}</TableCell>
             <TableCell align="center">{game.game_date.split('T')[0]}</TableCell>
             <TableCell align="center">{game.game_time}</TableCell>
-            <TableCell align="center">{selectedTeam}</TableCell>
-            <TableCell>{game.result ? game.result : <p>TBD</p>}</TableCell>
+            <TableCell className={selectedTeam !== 'Pick a team' ? "green" : "red" }
+            align="center">{selectedTeam}</TableCell>
+            {/* <TableCell>{game.result ? game.result : <p>TBD</p>}</TableCell> */}
         </TableRow>
     )
 } // end MakePickTableItem

@@ -2,3 +2,11 @@
     justify-content: center;
 }
 
+.green {
+    background-color: rgb(102, 255, 102)
+}
+
+.red {
+    background-color: rgb(255, 101, 101);
+}
+

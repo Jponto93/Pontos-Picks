@@ -11,7 +11,8 @@ import {
     MenuItem,
     Container,
     InputLabel,
-    Paper
+    Paper,
+    Button
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import MakePickTableItem from "../MakePickTableItem/MakePickTableItem";
@@ -100,7 +101,7 @@ function MakeYourPicks() {
                                     <TableCell align="center">DATE</TableCell>
                                     <TableCell align="center">TIME</TableCell>
                                     <TableCell align="center">YOUR PICK</TableCell>
-                                    <TableCell align="center">RESULT</TableCell>
+                                    {/* <TableCell align="center">RESULT</TableCell> */}
                                 </StyledTableRow>
                             </TableHead>
                             <TableBody>
@@ -112,7 +113,9 @@ function MakeYourPicks() {
                                 })}
                             </TableBody>
                         </Table>
-                        <button onClick={handlePickSubmit}>SUBMIT PICKS</button>
+                        <Button 
+                        variant="outlined"
+                        onClick={handlePickSubmit}>SUBMIT PICKS</Button>
 
                     </TableContainer> : <p></p>
                 }
