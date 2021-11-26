@@ -11,7 +11,9 @@ import {
     MenuItem,
     Container,
     InputLabel,
-    Paper
+    Paper,
+    Button,
+    Box
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import MakePickTableItem from "../MakePickTableItem/MakePickTableItem";
@@ -51,10 +53,11 @@ function MakeYourPicks() {
         <>  
             <Container className="container center">
                 <Paper elevation={24}>
-                <h2>SELECT YOUR WEEK</h2>
+                <h2 className="mainPickHeader">SELECT YOUR WEEK</h2>
                 <form>
                     <InputLabel>WEEK</InputLabel>
-                    <Select label="Week" id=""
+                    <Select className="weekSel"
+                    label="Week" id=""
                         onChange={((event) => dispatch({ type: 'FETCH_GAMES', payload: event.target.value }))}>
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
@@ -100,7 +103,7 @@ function MakeYourPicks() {
                                     <TableCell align="center">DATE</TableCell>
                                     <TableCell align="center">TIME</TableCell>
                                     <TableCell align="center">YOUR PICK</TableCell>
-                                    <TableCell align="center">RESULT</TableCell>
+                                    {/* <TableCell align="center">RESULT</TableCell> */}
                                 </StyledTableRow>
                             </TableHead>
                             <TableBody>
@@ -112,7 +115,13 @@ function MakeYourPicks() {
                                 })}
                             </TableBody>
                         </Table>
-                        <button onClick={handlePickSubmit}>SUBMIT PICKS</button>
+                            
+                        <Box 
+                        m={5}>
+                        <Button 
+                        variant="outlined"
+                        onClick={handlePickSubmit}>SUBMIT PICKS</Button>
+                        </Box>
 
                     </TableContainer> : <p></p>
                 }

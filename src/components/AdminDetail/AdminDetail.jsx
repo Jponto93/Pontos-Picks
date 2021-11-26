@@ -4,7 +4,8 @@ import {
     TableHead,
     TableRow,
     TableBody,
-    Container
+    Container,
+    Box
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import AdminDetailTableItem from '../AdminDetailTableItem/AdminDetailTableItem';
@@ -31,7 +32,9 @@ function AdminDetail() {
     return (
         <>
             <Container>
-                <h2>{details[0].username}'s week {week} pick's</h2>
+                <Box padding={5}>
+                    <h2>{details[0].username}'s week {week} pick's</h2>
+                </Box>
                 <TableContainer>
                     <Table>
                         <TableHead>
@@ -51,7 +54,9 @@ function AdminDetail() {
                     </Table>
                 </TableContainer>
                 {details.length > 0 ?
-                    <h2>{details[0].username} scored {points} points!</h2>
+                    <Box pt={5}>
+                        <h2>{details[0].username} scored {points} points for week {week}!</h2>
+                    </Box>
                     : <p></p>}
             </Container>
         </>

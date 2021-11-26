@@ -1,6 +1,9 @@
-import { TableCell } from '@mui/material'
+import { TableRow, TableCell, TextField } from '@mui/material'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
+import RemoveRedEyeTwoToneIcon from '@mui/icons-material/RemoveRedEyeTwoTone';
+import SaveTwoToneIcon from '@mui/icons-material/SaveTwoTone';
 
 function AdminTableItem ({member}) {
 
@@ -23,21 +26,21 @@ function AdminTableItem ({member}) {
     const [newScore, setNewScore] = useState(0);
 
     return (
-        <tr key={member.id}>
-        <TableCell align="center"><button onClick={() => handleDeleteClick(member.id)}>REMOVE</button></TableCell>
-        <TableCell><button onClick={() => dispatch({ type: 'FETCH_MEMBER_WEEK', payload: { id: member.id, week: week} })}>PICKS</button></TableCell>
+        <TableRow key={member.id}>
+        <TableCell align="center"><DeleteForeverTwoToneIcon onClick={() => handleDeleteClick(member.id)}></DeleteForeverTwoToneIcon></TableCell>
+        <TableCell align="center"><RemoveRedEyeTwoToneIcon onClick={() => dispatch({ type: 'FETCH_MEMBER_WEEK', payload: { id: member.id, week: week} })}></RemoveRedEyeTwoToneIcon></TableCell>
         <TableCell align="center">{member.username}</TableCell>
         <TableCell align="center">{member.email}</TableCell>
         <TableCell align="center">{member.pick_score}</TableCell>
         <TableCell align="center">
-            <input 
+            <TextField size="small" 
             type="number"
             onChange={(event) => setNewScore(event.target.value)}  />
         </TableCell>
-        <TableCell className="center">
-            <button onClick={() => handleSaveClick(member.id)}>SAVE</button>
+        <TableCell align="center">
+            <SaveTwoToneIcon onClick={() => handleSaveClick(member.id)}></SaveTwoToneIcon>
         </TableCell>
-    </tr>
+    </TableRow>
     )
 } // end AdminTableItem;
 
