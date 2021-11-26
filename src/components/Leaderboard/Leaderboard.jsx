@@ -3,6 +3,11 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import './Leaderboard.css';
 import { Container } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 function Leaderboard() {
 
@@ -23,6 +28,24 @@ function Leaderboard() {
                             <h4>{member.username}</h4>
                             <h3>SCORE: {member.pick_score}</h3>
                         </div>
+                        // <Card sx={{ maxWidth: 345 }}>
+                        //     <CardActionArea>
+                        //         {/* <CardMedia
+                        //             component="img"
+                        //             height="140"
+                        //             image="/static/images/cards/contemplative-reptile.jpg"
+                        //             alt="green iguana"
+                        //         /> */}
+                        //         <CardContent>
+                        //             <Typography gutterBottom variant="h5" component="div">
+                        //             {member.username}
+                        //             </Typography>
+                        //             <Typography variant="body2" color="text.secondary">
+                        //             {member.pick_score}
+                        //             </Typography>
+                        //         </CardContent>
+                        //     </CardActionArea>
+                        // </Card>
                     ))}
                 </div>
             </Container>
