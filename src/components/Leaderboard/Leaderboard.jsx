@@ -18,7 +18,8 @@ function Leaderboard() {
                 <h1>WELCOME TO THE LEADERBOARDS</h1>
                 <div className="container">
                     {leaderboard.map(member => (
-                        <div className="card">
+                        <div key={member.id} 
+                        className="card">
                             <h4>{member.username}</h4>
                             <h3>SCORE: {member.pick_score}</h3>
                         </div>
