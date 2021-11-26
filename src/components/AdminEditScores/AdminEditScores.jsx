@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import './Admin.css';
+import './AdminEditScores.css';
 import {
     Table,
     TableBody,
     TableContainer,
     TableHead,
     TableRow,
-    Container
+    Container,
+    Button,
+    Paper,
+    Box
 } from '@mui/material'
 import AdminGameItem from "../AdminGameItem/AdminGameItem";
-import WeekSelect from "../WeekSelect/WeekSelect";
 import { useHistory } from "react-router";
 // import AdminEditScores from "../AdminEditScores/AdminEditScores";
 
@@ -30,8 +32,11 @@ function AdminEditScores() {
 
     return (
         <>
-            <Container>
-                <button onClick={() => history.push('/admin')}>BACK</button>
+            <Container className="editGameContainer">
+                <Paper elevation={24}>
+                    <Box padding={5}>
+                    <h2>WEEK {week} GAMES</h2>
+                    </Box>
                 <TableContainer>
                     <Table>
                         <TableHead>
@@ -55,6 +60,13 @@ function AdminEditScores() {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <Box padding={5}
+                className="backBtn">
+                <Button
+                variant="outlined"
+                onClick={() => history.push('/admin')}>BACK</Button>
+                </Box>
+                </Paper>
             </Container>
         </>
     )
