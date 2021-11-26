@@ -25,7 +25,7 @@ function Leaderboard() {
                     {leaderboard.map(member => (
                         <div key={member.id} 
                         className="card">
-                            <h4>{member.username}</h4>
+                            <h4>{member.display_name}</h4>
                             <h3>SCORE: {member.pick_score}</h3>
                         </div>
                         // <Card sx={{ maxWidth: 345 }}>
