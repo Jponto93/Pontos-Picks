@@ -5,6 +5,7 @@ import games from './games.reducer';
 import selection from './selection.reducer';
 import week from './week.reducer';
 import members from './members.reducer';
+import details from './admin.details.reducer';
 import leaderboard from './leaderboard.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   selection,
   week,
   members,
+  details,
   leaderboard,
 });
 

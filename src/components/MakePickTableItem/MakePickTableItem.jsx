@@ -1,14 +1,16 @@
 import { TableCell, TableRow } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import './MakePickTableItem.css';
 
 function MakePickTableItem({ game }) {
 
     const [selectedTeam, setSelectedTeam] = useState('Pick a team');
-
     const dispatch = useDispatch();
 
+    // teams
+    // const teams = useSelector(store => store.teams)
+    // teams.filter((team) => team.team_id === game.visitor_id || team.team_id === game.home_id)
 
     const teamSelector = (event) => {
         setSelectedTeam(event.target.innerHTML)
@@ -17,21 +19,27 @@ function MakePickTableItem({ game }) {
             type: 'ADD_PICK_SELECTION',
             payload: {
                 pick: event.target.innerHTML,
-                schedule_id: game.id,
+                schedule_id: String(game.id),
+                week: game.week
             }
         })
     } // end teamSelector
 
+
     return (
         <TableRow key={game.id}>
-            <TableCell>{game.visitor_score}</TableCell>
-            <TableCell onClick={(event) => teamSelector(event, game.id)}>{game.visitor_id}</TableCell>
-            <TableCell>@</TableCell>
-            <TableCell onClick={(event) => teamSelector(event, game.id)}>{game.home_id}</TableCell>
-            <TableCell>{game.home_score}</TableCell>
-            <TableCell>{game.game_date}</TableCell>
-            <TableCell>{game.game_time}</TableCell>
-            <TableCell>{selectedTeam}</TableCell>
+            <TableCell align="center">{game.visitor_score}</TableCell>
+            <TableCell align="center"
+            onClick={(event) => teamSelector(event, game.id)}>{game.visitor_id}</TableCell>
+            <TableCell align="center">vs.</TableCell>
+            <TableCell align="center"
+            onClick={(event) => teamSelector(event, game.id)}>{game.home_id}</TableCell>
+            <TableCell align="center">{game.home_score}</TableCell>
+            <TableCell align="center">{game.game_date.split('T')[0]}</TableCell>
+            <TableCell align="center">{game.game_time}</TableCell>
+            <TableCell className={selectedTeam !== 'Pick a team' ? "green" : "red" }
+            align="center">{selectedTeam}</TableCell>
+            {/* <TableCell>{game.result ? game.result : <p>TBD</p>}</TableCell> */}
         </TableRow>
     )
 } // end MakePickTableItem

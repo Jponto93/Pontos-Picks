@@ -1,0 +1,15 @@
+.center {
+    text-align: center;
+}
+
+.container { 
+    display: flex;
+}
+
+.mainPickHeader {
+    padding-top: 40px
+}
+
+.weekSel {
+    margin-bottom: 40px;
+}

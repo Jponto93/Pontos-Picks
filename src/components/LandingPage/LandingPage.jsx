@@ -13,6 +13,7 @@ function LandingPage() {
     history.push('/login');
   };
 
+  console.log('loading landing')
   return (
     <div className="container">
       <h2>{heading}</h2>

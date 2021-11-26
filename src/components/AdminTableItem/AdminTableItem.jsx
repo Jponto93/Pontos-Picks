@@ -1,10 +1,14 @@
-import { TableCell } from '@mui/material'
+import { TableRow, TableCell, TextField } from '@mui/material'
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
+import RemoveRedEyeTwoToneIcon from '@mui/icons-material/RemoveRedEyeTwoTone';
+import SaveTwoToneIcon from '@mui/icons-material/SaveTwoTone';
 
 function AdminTableItem ({member}) {
 
     const dispatch = useDispatch();
+    const week = useSelector(store => store.week)
 
     const handleSaveClick = (id) => {
         console.log('clicked id #:', id);
@@ -22,20 +26,21 @@ function AdminTableItem ({member}) {
     const [newScore, setNewScore] = useState(0);
 
     return (
-        <tr key={member.id}>
-        <TableCell><button onClick={() => handleDeleteClick(member.id)}>REMOVE</button></TableCell>
-        <TableCell>{member.username}</TableCell>
-        <TableCell>{member.email}</TableCell>
-        <TableCell>{member.pick_score}</TableCell>
-        <TableCell>
-            <input 
+        <TableRow key={member.id}>
+        <TableCell align="center"><DeleteForeverTwoToneIcon onClick={() => handleDeleteClick(member.id)}></DeleteForeverTwoToneIcon></TableCell>
+        <TableCell align="center"><RemoveRedEyeTwoToneIcon onClick={() => dispatch({ type: 'FETCH_MEMBER_WEEK', payload: { id: member.id, week: week} })}></RemoveRedEyeTwoToneIcon></TableCell>
+        <TableCell align="center">{member.username}</TableCell>
+        <TableCell align="center">{member.email}</TableCell>
+        <TableCell align="center">{member.pick_score}</TableCell>
+        <TableCell align="center">
+            <TextField size="small" 
             type="number"
             onChange={(event) => setNewScore(event.target.value)}  />
         </TableCell>
-        <TableCell>
-            <button onClick={() => handleSaveClick(member.id)}>SAVE</button>
+        <TableCell align="center">
+            <SaveTwoToneIcon onClick={() => handleSaveClick(member.id)}></SaveTwoToneIcon>
         </TableCell>
-    </tr>
+    </TableRow>
     )
 } // end AdminTableItem;
 
