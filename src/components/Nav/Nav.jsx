@@ -21,8 +21,17 @@ function Nav() {
           </Link>
         }
 
+        {user.access_level > 0 && (
+          <>
+            <Link className="navLink" to="/admin">
+              Admin
+            </Link>
+            <LogOutButton className="navLink" />
+          </>
+        )}
+
         {/* If a user is logged in, show these links */}
-        {user.id && (
+        {user.id && user.access_level === 0 && (
           <>
 
             <Link className="navLink" to="/user">
@@ -43,12 +52,6 @@ function Nav() {
             <Link className="navLink" to="/profile">
               Profile
             </Link>
-
-            {user.access_level > 0 && (
-              <Link className="navLink" to="/admin">
-                Admin
-              </Link>
-            )}
 
             <LogOutButton className="navLink" />
           </>
