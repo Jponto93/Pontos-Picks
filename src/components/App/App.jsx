@@ -22,6 +22,7 @@ import Leaderboard from '../Leaderboard/Leaderboard';
 import AdminPlayerTable from '../AdminPlayerTable/AdminPlayerTable';
 import AdminEditScores from '../AdminEditScores/AdminEditScores';
 import Confirmation from '../Confirmation/Confirmation';
+import Profile from '../Profile/Profile';
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +60,13 @@ function App() {
             path="/user"
           >
             <UserPage />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/profile"
+          >
+            <Profile />
           </ProtectedRoute>
 
           <ProtectedRoute

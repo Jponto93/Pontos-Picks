@@ -40,6 +40,9 @@ function Nav() {
             <Link className="navLink" to="/leaderboard">
               Leaderboards
             </Link>
+            <Link className="navLink" to="/profile">
+              Profile
+            </Link>
 
             {user.access_level > 0 && (
               <Link className="navLink" to="/admin">
