@@ -68,7 +68,9 @@ function App() {
             exact
             path="/profile"
           >
-            <Profile />
+            {user.access_level > 0 ? <Redirect to="/admin" />
+              :
+              <Profile />}
           </ProtectedRoute>
 
           <ProtectedRoute
