@@ -28,6 +28,7 @@ function MakeYourPicks() {
 
     const dispatch = useDispatch();
     const games = useSelector(store => store.games)
+    const week = useSelector(store => store.week)
 
     const handlePickSubmit = () => {
         console.log('clicked submit');
@@ -58,6 +59,7 @@ function MakeYourPicks() {
                     <InputLabel>WEEK</InputLabel>
                     <Select className="weekSel"
                     label="Week" id=""
+                    value={week ? week : ""}
                         onChange={((event) => dispatch({ type: 'FETCH_GAMES', payload: event.target.value }))}>
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
