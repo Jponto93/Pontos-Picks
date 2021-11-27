@@ -8,7 +8,7 @@ function* gamesSaga() {
 function* fetchGames(action) {
     console.log('inside fetchGames', action.payload);
     try {
-        yield put({ type: 'SET SELECTED_WEEK', payload: action.payload})
+        yield put({ type: 'SET_SELECTED_WEEK', payload: action.payload})
         const response = yield axios.get(`/api/games/${action.payload}`)
         console.log('this is response.data', response.data);
         yield put({ type: 'SET_GAMES', payload: response.data })

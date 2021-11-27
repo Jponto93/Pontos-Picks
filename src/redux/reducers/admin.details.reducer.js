@@ -4,6 +4,8 @@ const adminDetailsReducer = (state = [], action) => {
             return action.payload;
         case 'CLEAR_DETAILS':
             return [];
+        case 'LOGOUT': 
+            return [];
         default:
             return state;
     }
