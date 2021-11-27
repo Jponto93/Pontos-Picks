@@ -108,7 +108,7 @@ function App() {
           exact
           path="/registration"
           >
-        {user.id?
+        {user.id && user.access_level === 0 ?
           // If the user is already logged in, 
           // redirect them to the /user page
           <Redirect to="/user" />

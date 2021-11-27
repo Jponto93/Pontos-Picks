@@ -59,7 +59,7 @@ function MakeYourPicks() {
                     <InputLabel>WEEK</InputLabel>
                     <Select className="weekSel"
                     label="Week" id=""
-                    value={week ? week : ""}
+                    value={week ? week : 0}
                         onChange={((event) => dispatch({ type: 'FETCH_GAMES', payload: event.target.value }))}>
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
