@@ -4,13 +4,15 @@
     width: 200px;
     height: 200px;
     border: 2px solid black;
-    border-radius: 15px;
+    border-radius: 120px;
     padding: 10px;
     margin: 10px;
 }
 
 .container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1, h2 {
@@ -19,5 +21,38 @@ h1, h2 {
 
 .scoreIn {
     width: 50px;
+}
+
+.card0 {
+    background-color: gold;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 120px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card1 {
+    background-color: silver;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 120px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card2 { 
+    background-color: rgb(191, 128, 64);
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 120px;
+    padding: 10px;
+    margin: 10px;
 }
 
