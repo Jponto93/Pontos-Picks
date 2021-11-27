@@ -58,7 +58,9 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            {user.access_level > 0 ? <Redirect to="/admin" />
+              :
+              <UserPage />}
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -66,93 +68,101 @@ function App() {
             exact
             path="/info"
           >
-            <InfoPage />
+            {user.access_level > 0 ? <Redirect to="/admin" />
+              :
+              <InfoPage />}
           </ProtectedRoute>
 
           <ProtectedRoute
             exact
             path="/picks"
           >
-          <MakeYourPicks />
+            {user.access_level > 0 ? <Redirect to="/admin" />
+              :
+              <MakeYourPicks />}
           </ProtectedRoute>
 
           <ProtectedRoute
-          exact
-          path="/confirmation"
+            exact
+            path="/confirmation"
           >
-          <Confirmation />
+            {user.access_level > 0 ? <Redirect to="/admin" />
+              :
+              <Confirmation />}
           </ProtectedRoute>
 
           <ProtectedRoute
-          exact
-          path="/leaderboard"
+            exact
+            path="/leaderboard"
           >
-          <Leaderboard />
+            {user.access_level > 0 ? <Redirect to="/admin" />
+              :
+              <Leaderboard />}
           </ProtectedRoute>
 
           <Route
-          exact
-          path="/login"
+            exact
+            path="/login"
           >
-        {user.id?
-          // If the user is already logged in, 
-          // redirect to the /user page
-          <Redirect to="/user" />
-          :
-          // Otherwise, show the login page
-          <LoginPage />
-        }
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect to the /user page
+              <Redirect to="/user" />
+              :
+              // Otherwise, show the login page
+              <LoginPage />
+            }
           </Route>
 
           <Route
-          exact
-          path="/registration"
+            exact
+            path="/registration"
           >
-        {user.id?
-          // If the user is already logged in, 
-          // redirect them to the /user page
-          <Redirect to="/user" />
-          :
-          // Otherwise, show the registration page
-          <RegisterPage />
-        }
+            {user.id && user.access_level === 0 ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/user" />
+              :
+              // Otherwise, show the registration page
+              <RegisterPage />
+            }
           </Route>
 
           <ProtectedRoute exact path="/admin">
-        {user.access_level === 1?
-          <Admin />: <Redirect to="/home"/>
-        }
+            {user.access_level === 1 ?
+              <Admin /> : <Redirect to="/home" />
+            }
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/admin/players">
-        {user.access_level === 1?
-          <AdminPlayerTable />: <Redirect to="/home"/>
-        }
+            {user.access_level === 1 ?
+              <AdminPlayerTable /> : <Redirect to="/home" />
+            }
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/admin/games">
-        {user.access_level === 1?
-          <AdminEditScores />: <Redirect to="/home"/>
-        }
+            {user.access_level === 1 ?
+              <AdminEditScores /> : <Redirect to="/home" />
+            }
           </ProtectedRoute>
 
           <Route
-          exact
-          path="/home"
+            exact
+            path="/home"
           >
-        {user.id?
-          // If the user is already logged in, 
-          // redirect them to the /user page
-          <Redirect to="/user" />
-          :
-          // Otherwise, show the Landing page
-          <LandingPage />
-        }
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/user" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
           </Route>
 
-        {/* If none of the other routes matched, we will show a 404. */}
+          {/* If none of the other routes matched, we will show a 404. */}
           <Route>
-          <h1>404</h1>
+            <h1>404</h1>
           </Route>
         </Switch>
         <Footer />
