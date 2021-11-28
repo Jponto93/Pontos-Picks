@@ -49,6 +49,9 @@ function Nav() {
             <Link className="navLink" to="/leaderboard">
               Leaderboards
             </Link>
+            <Link className="navLink" to="/profile">
+              Profile
+            </Link>
 
             <LogOutButton className="navLink" />
           </>
