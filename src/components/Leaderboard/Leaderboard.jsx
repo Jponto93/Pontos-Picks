@@ -2,12 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import './Leaderboard.css';
-import { Container } from '@mui/material';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Container, Box } from '@mui/material';
 
 function Leaderboard() {
 
@@ -27,9 +22,20 @@ function Leaderboard() {
                         return (
                             <div key={member.id}
                                 className={i < 3 ? `card${i}` : "card"}>
-                                <h4>{member.display_name}</h4>
-                                <div></div>
-                                <h3>SCORE: {member.pick_score}</h3>
+                                <h4 className="displayName">{member.display_name}</h4>
+                                { i === 0 ? <h3>1st Place!</h3> : <p></p>}
+                                { i === 1 ? <h3>2nd Place!</h3> : <p></p>}
+                                { i === 2 ? <h3>3rd Place!</h3> : <p></p>}
+                                { i >= 3 ? <h3>{i + 1}th Place!</h3> : <p></p>}
+                                <div className="">
+                                    {member.image === null ?  
+                                    <p className="filler"></p> 
+                                    :
+                                    <img className="leaderboardImg"
+                                    src={member.image} alt="profile.pic" /> 
+                                    }
+                                </div>
+                                <h3 className="displayScore">SCORE: {member.pick_score}</h3>
                             </div>
                         )
                     })}

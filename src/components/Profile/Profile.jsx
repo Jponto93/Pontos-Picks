@@ -38,12 +38,13 @@ function Profile() {
                 </Box>
                 <Box className="imageBlock"
                 pl={5}
-                pt={5}>
+                pt={5}
+                >
                     <img src={user.image} alt="profile picture" />
                 </Box>
                 <Box
                     pl={5}
-                    pt={2}>
+                    pt={10}>
                     <List>
                         <ListItem>Email: {user.email}</ListItem>
                         <ListItem>Display Name: {user.display_name}</ListItem>
