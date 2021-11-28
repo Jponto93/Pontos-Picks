@@ -49,4 +49,29 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+//for updating current user information
+router.put('/', (req, res) => {
+  console.log('req.body:', req.body);
+  console.log('req.user.id', req.user.id);
+
+  let email = req.body.email;
+  let displayName = req.body.displayName
+  let id = req.user.id;
+
+  const sqlText = `
+  UPDATE "user"
+  SET "email" = $1, "display_name" = $2
+  WHERE "id" = $3;
+  `
+  let values = [email, displayName, id]
+  pool.query(sqlText, values)
+    .then(response => {
+      res.sendStatus(201);
+    })
+    .catch(err => {
+      console.log('error in PUT', err);
+      res.sendStatus(500);
+    })
+})
+
 module.exports = router;
