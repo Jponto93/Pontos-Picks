@@ -9,6 +9,7 @@ function* fetchMemberWeekSaga () {
 function* fetchMemberWeek (action) {
     const { week } = action.payload
     try {
+        yield put({ type: 'SET_SELECTED_WEEK', payload: week})
         const response = yield axios.get(`/api/details?id=${action.payload.id}&week=${week}`)
         console.log('you have made it this far');
         yield put({ type: 'SET_DETAILS', payload: response.data})

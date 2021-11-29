@@ -38,19 +38,16 @@ function Nav() {
               Home
             </Link>
 
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-
             <Link className="navLink" to="/picks">
               Make Your Picks
             </Link>
 
-            <Link className="navLink" to="/leaderboard">
-              Leaderboards
-            </Link>
             <Link className="navLink" to="/profile">
               Profile
+            </Link>
+            
+            <Link className="navLink" to="/leaderboard">
+              Leaderboards
             </Link>
 
             <LogOutButton className="navLink" />

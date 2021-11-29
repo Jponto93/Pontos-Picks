@@ -73,7 +73,7 @@ function App() {
               <Profile />}
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/info"
@@ -81,7 +81,7 @@ function App() {
             {user.access_level > 0 ? <Redirect to="/admin" />
               :
               <InfoPage />}
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           <ProtectedRoute
             exact

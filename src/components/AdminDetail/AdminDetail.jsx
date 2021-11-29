@@ -16,6 +16,7 @@ function AdminDetail() {
     const details = useSelector(store => store.details)
     const dispatch = useDispatch();
     const week = useSelector(store => store.week)
+    const user = useSelector(store => store.user)
 
     let points = details.reduce((points, game) => {
         console.log('inside reduce');
@@ -33,7 +34,7 @@ function AdminDetail() {
         <>
             <Container>
                 <Box padding={5}>
-                    <h2>{details[0].username}'s week {week} pick's</h2>
+                    {details[0].username === user.username ?  <h2>Your week {week} picks!</h2> : <h2>{details[0].username}'s week {week} pick's</h2>}
                 </Box>
                 <TableContainer>
                     <Table>
@@ -55,7 +56,7 @@ function AdminDetail() {
                 </TableContainer>
                 {details.length > 0 ?
                     <Box pt={5}>
-                        <h2>{details[0].username} scored {points} points for week {week}!</h2>
+                        {details[0].username === user.username ?  <h2>You scored {points} points for week {week}!</h2> :  <h2>{details[0].username} scored {points} points for week {week}!</h2>}
                     </Box>
                     : <p></p>}
             </Container>

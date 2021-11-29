@@ -1,12 +1,12 @@
 
 .card {
     text-align: center;
-    width: 300px;
-    height: 300px;
-    border: 2px solid black;
+    width: 310px;
+    height: 310px;
     border-radius: 200px;
     padding: 10px;
     margin: 10px;
+    background-color: white;
 }
 
 .container {
@@ -26,9 +26,9 @@ h1, h2 {
 .card0 {
     background-color: gold;
     text-align: center;
-    width: 300px;
-    height: 300px;
-    border: 2px solid black;
+    width: 310px;
+    height: 310px;
+    /* border: 2px solid black; */
     border-radius: 200px;
     padding: 10px;
     margin: 10px;
@@ -37,10 +37,10 @@ h1, h2 {
 .card1 {
     background-color: silver;
     text-align: center;
-    width: 300px;
-    height: 300px;
-    border: 2px solid black;
-    border-radius: 2000px;
+    width: 310px;
+    height: 310px;
+    /* border: 2px solid black; */
+    border-radius: 200px;
     padding: 10px;
     margin: 10px;
 }
@@ -48,26 +48,20 @@ h1, h2 {
 .card2 { 
     background-color: rgb(191, 128, 64);
     text-align: center;
-    width: 300px;
-    height: 300px;
-    border: 2px solid black;
+    width: 310px;
+    height: 310px;
+    /* border: 2px solid black; */
     border-radius: 200px;
     padding: 10px;
     margin: 10px;
 }
 
 .leaderboardImg {
-    height: 110px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
+    border-radius: 60px;
 }
 
-.displayName {
-    /* padding-bottom: 10px; */
-}
-
-.displayScore {
-    padding-top: 20px;
-}
 
 .filler {
     height: 110px;
