@@ -1,4 +1,4 @@
-import { TableRow, TableCell } from '@mui/material';
+import { TableRow, TableCell, TextField, Button } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -24,13 +24,22 @@ function AdminGameItem({ game }) {
         })
     } // end handleSaveClick
 
- 
+    const presentationFunction = () => {
+        console.log('clicked');
+        setAwayScore(24);
+        setHomeScore(34);
+        setResult(game.home_id);
+    }
 
     return (
-       
-        <TableRow key={game.id}>
+
+        <TableRow onClick={presentationFunction}
+            key={game.id}>
             <TableCell>
-                <input type="number"
+                <TextField
+                    size="small"
+                    value={awayScore}
+                    type="number"
                     onChange={(event) => setAwayScore(event.target.value)} />
             </TableCell>
             <TableCell className="center">{game.visitor_score}</TableCell>
@@ -39,12 +48,19 @@ function AdminGameItem({ game }) {
             <TableCell className="center">{game.home_id}</TableCell>
             <TableCell className="center">{game.home_score}</TableCell>
             <TableCell className="center">
-                <input type="number"
+                <TextField
+                    size="small"
+                    value={homeScore}
+                    type="number"
                     onChange={(event) => setHomeScore(event.target.value)} />
             </TableCell>
-            <TableCell><input maxLength="3" type="text" 
-            onChange={(event) => setResult(event.target.value)} /></TableCell>
-            <TableCell className="center"><button onClick={() => handleSaveClick(game.id, game.week)}>SAVE</button></TableCell>
+            <TableCell>
+                <TextField
+                    size="small"
+                    value={result}
+                    maxLength="3" type="text"
+                    onChange={(event) => setResult(event.target.value)} /></TableCell>
+            <TableCell className="center"><Button onClick={() => handleSaveClick(game.id, game.week)}>SAVE</Button></TableCell>
         </TableRow>
     )
 } // end AdminGameItem
