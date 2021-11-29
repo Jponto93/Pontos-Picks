@@ -28,6 +28,8 @@ function AdminDetail() {
         }
     }, 0)
 
+    const combinedTotal = points + user.pick_score;
+    console.log('combinedTotal = ',combinedTotal);
     dispatch({ type: 'SET_POINT_COUNT', payload: points })
 
     return (
@@ -56,7 +58,12 @@ function AdminDetail() {
                 </TableContainer>
                 {details.length > 0 ?
                     <Box pt={5}>
-                        {details[0].username === user.username ?  <h2>You scored {points} points for week {week}!</h2> :  <h2>{details[0].username} scored {points} points for week {week}!</h2>}
+                        {details[0].username === user.username ?  <h2>You scored {points} points for week {week}!</h2>
+                        :  
+                        <>
+                        <h2>{details[0].username} scored {points} points for week {week}!</h2>
+                        {/* <h2>{details[0].username} now has {combinedTotal} points!</h2> */}
+                        </>}
                     </Box>
                     : <p></p>}
             </Container>

@@ -39,7 +39,7 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/picks">
-              Make Your Picks
+              Make Picks
             </Link>
 
             <Link className="navLink" to="/profile">
@@ -47,7 +47,7 @@ function Nav() {
             </Link>
             
             <Link className="navLink" to="/leaderboard">
-              Leaderboards
+              Leaderboard
             </Link>
 
             <LogOutButton className="navLink" />
