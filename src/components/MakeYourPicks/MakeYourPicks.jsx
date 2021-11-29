@@ -54,7 +54,7 @@ function MakeYourPicks() {
         <>  
             <Container className="container center">
                 <Paper elevation={24}>
-                <h2 className="mainPickHeader">SELECT YOUR WEEK</h2>
+                <h1 className="mainPickHeader">SELECT THE WEEK</h1>
                 <form>
                     <InputLabel>WEEK</InputLabel>
                     <Select className="weekSel"
@@ -83,6 +83,8 @@ function MakeYourPicks() {
                 </form>
 
                 {games.length > 1 ?
+                <>
+                <p>Select a team by clicking on their name!</p>
                     <TableContainer>
                         <Table>
                             <colgroup>
@@ -125,7 +127,8 @@ function MakeYourPicks() {
                         onClick={handlePickSubmit}>SUBMIT PICKS</Button>
                         </Box>
 
-                    </TableContainer> : <p></p>
+                    </TableContainer> 
+                    </> : <p></p>
                 }
                 </Paper>
             </Container>

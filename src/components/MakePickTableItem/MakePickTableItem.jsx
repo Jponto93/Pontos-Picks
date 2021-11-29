@@ -5,7 +5,7 @@ import './MakePickTableItem.css';
 
 function MakePickTableItem({ game }) {
 
-    const [selectedTeam, setSelectedTeam] = useState('Pick a team');
+    const [selectedTeam, setSelectedTeam] = useState('');
     const dispatch = useDispatch();
 
     // teams
@@ -37,7 +37,7 @@ function MakePickTableItem({ game }) {
             <TableCell align="center">{game.home_score}</TableCell>
             <TableCell align="center">{game.game_date.split('T')[0]}</TableCell>
             <TableCell align="center">{game.game_time}</TableCell>
-            <TableCell className={selectedTeam !== 'Pick a team' ? "green" : "red" }
+            <TableCell className={selectedTeam !== '' ? "green" : "red" }
             align="center">{selectedTeam}</TableCell>
             {/* <TableCell>{game.result ? game.result : <p>TBD</p>}</TableCell> */}
         </TableRow>

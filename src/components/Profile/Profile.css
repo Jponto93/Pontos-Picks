@@ -1,4 +1,10 @@
 .imageBlock {
     height: 300px;
     width: 300px;
+    justify-content: center;
+}
+
+.profileContainer {
+    display: flex;
+    text-align: center;
 }

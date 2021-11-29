@@ -15,19 +15,19 @@ function Leaderboard() {
     return (
         <>
             <Container>
-                <h1>WELCOME TO THE LEADERBOARDS</h1>
+                <h1>LEADER BOARD</h1>
                 <h2>Here are the standings if the season ended today...</h2>
                 <div className="container">
                     {leaderboard.map((member, i) => {
                         return (
                             <div key={member.id}
                                 className={i < 3 ? `card${i}` : "card"}>
-                                <h4 className="displayName">{member.display_name}</h4>
-                                { i === 0 ? <h3>1st Place!</h3> : <p></p>}
-                                { i === 1 ? <h3>2nd Place!</h3> : <p></p>}
-                                { i === 2 ? <h3>3rd Place!</h3> : <p></p>}
+                                <h3>{member.display_name}</h3>
+                                { i === 0 ? <h2>1st Place!</h2> : <p></p>}
+                                { i === 1 ? <h2>2nd Place!</h2> : <p></p>}
+                                { i === 2 ? <h2>3rd Place!</h2> : <p></p>}
                                 { i >= 3 ? <h3>{i + 1}th Place!</h3> : <p></p>}
-                                <div className="">
+                                <div>
                                     {member.image === null ?  
                                     <p className="filler"></p> 
                                     :

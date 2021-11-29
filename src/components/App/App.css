@@ -110,3 +110,9 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+body {
+  /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwGfi9j4XvpJCqG-7-DWyFFPxMhMd3afKWNg&usqp=CAU); */
+  /* background-repeat: no-repeat; */
+  background-color:#ffaa42;
+}
