@@ -49,9 +49,13 @@ Once logged in you will see a concise summary of the rules to the game.
 
 If you go to the profile tab on the upper right corner of the navigation tab you can upload a profile image of your choice using a URL for personalization. 
 
+<img src="/public/images/profile.png" />
+
 Once your profile is to your liking, click on "Make Picks" on the nav bar. 
 
 Select the week you would like to view, and a table will populate with the selected week's matchups! 
+
+<img src="/public/images/MakePicks.png" />
 
 This table includes scores, dates, and times for games. Making your selections is easy, just click on the name of the team you think will win each match up! Once all games have a green box in the "YOUR PICK" column, you click the "SUBMIT PICKS" button at the bottom to save them. You will receive a confirmation message once submitted!
 
@@ -59,9 +63,16 @@ Next, create an admin username/password. In the PostgreSQL database, change the 
 
 Once logged in as the admin you will have two jobs. First select the week you want to update. Then select update games, and fill in the scores and result of each game. (Result should be the same 3 letter acronym as displayed on the table). Once games results are input then save.
 
+<img src="/public/images/admin.png" />
+<img src="/public/images/admingames.png" />
+
 Lastly, go to update players and click on the "eye" icon of a given player to view their pick selections for that week. The amount of points that player earned will be calculated automatically, just update the player's score on the table and click the floppy disk icon on the right to save!
 
+<img src="/public/images/adminscores.png" />
+
 Once scores are updated, users can head to the leaderboards area to see their rankings!
+
+<img src="/public/images/leaderboard.png" />
 
 
 ## License
