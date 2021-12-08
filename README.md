@@ -45,7 +45,7 @@ As a user, you will be brought to a landing page once you run the application on
 
 Once logged in you will see a concise summary of the rules to the game. 
 
-<img src="/images/home.png" />
+<img src="/public/images/home.png" />
 
 If you go to the profile tab on the upper right corner of the navigation tab you can upload a profile image of your choice using a URL for personalization. 
 
