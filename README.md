@@ -1,121 +1,77 @@
+![License](https://img.shields.io/github/license/Jponto93/https://github.com/Jponto93/Pontos-Picks.svg?style=for-the-badge) ![Repo Size](https://img.shields.io/github/languages/code-size/Jponto93/https://github.com/Jponto93/Pontos-Picks.svg?style=for-the-badge) ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/Jponto93/https://github.com/Jponto93/Pontos-Picks.svg?style=for-the-badge) ![FORKS](https://img.shields.io/github/forks/Jponto93/https://github.com/Jponto93/Pontos-Picks.svg?style=for-the-badge&social) ![Stars](https://img.shields.io/github/stars/Jponto93/https://github.com/Jponto93/Pontos-Picks.svg?style=for-the-badge)
+    
+# Pontos-Picks
 
-# EDA Project
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+## Table of Contents
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+- [Description](#description)
+- [Screenshots](#screenshots)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Contacts](#contacts)
 
-## Use the Template for This Repository (Don't Clone)
+## Description
 
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account.
+A paperless way to participate in friendly competition using NFL games between friends or offices!
+
+## Screenshots
+
+<!-- <img src="/images/home" /> -->
+
+## Built With
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" height="40px" width="40px" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="40px" width="40px" /></a><a href="https://material-ui.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" height="40px" width="40px" /></a><a href="https://nodejs.org/en/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" height="40px" width="40px" /></a><a href="https://www.postgresql.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" height="40px" width="40px" /></a><a href="https://reactjs.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" height="40px" width="40px" /></a><a href="https://redux.js.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" height="40px" width="40px" /></a>
+
+## Getting Started
+
+The only thing you will need to know prior to replicating this project is the current week of the NFL schedule. Currently the application does not have an API implemented, but that will come in the future. The NFL schedule is already included for the 2021 season without the results of any games played thus far. 
+
+### Prerequisites
+
+You will need to install Node.js and PostgreSQL on your local machine before walking through the installation.
+
+### Installation
+
+Getting started is easy! First, clone the repository onto your local machine. Open with IDE of your choice (I used Visual Studio Code). You will also find a database.sql file in the project folder. Open PostgreSQL and create a database named "pontos_picks".  Copy all contents in database.sql file and paste file into PostgreSQL SQL Query and execute. Once the database is built and connected, go to VS Code and run these commands... "npm run server" and "npm run client". Cheers!
+
+## Usage
+
+As a user, you will be brought to a landing page once you run the application on your local machine. You will see a registration form on the right side of the screen. Input your information and log in. 
+
+Once logged in you will see a concise summary of the rules to the game. 
+
+<img src="/images/home" />
+
+If you go to the profile tab on the upper right corner of the navigation tab you can upload a profile image of your choice using a URL for personalization. 
+
+Once your profile is to your liking, click on "Make Picks" on the nav bar. 
+
+Select the week you would like to view, and a table will populate with the selected week's matchups! 
+
+This table includes scores, dates, and times for games. Making your selections is easy, just click on the name of the team you think will win each match up! Once all games have a green box in the "YOUR PICK" column, you click the "SUBMIT PICKS" button at the bottom to save them. You will receive a confirmation message once submitted!
+
+Next, create an admin username/password. In the PostgreSQL database, change the access_level of the admin in the "user" table to "1". 
+
+Once logged in as the admin you will have two jobs. First select the week you want to update. Then select update games, and fill in the scores and result of each game. (Result should be the same 3 letter acronym as displayed on the table). Once games results are input then save.
+
+Lastly, go to update players and click on the "eye" icon of a given player to view their pick selections for that week. The amount of points that player earned will be calculated automatically, just update the player's score on the table and click the floppy disk icon on the right to save!
+
+Once scores are updated, users can head to the leaderboards area to see their rankings!
 
 
-## Prerequisites
+## License
 
-Before you get started, make sure you have the following software installed on your computer:
+<a href="https://choosealicense.com/licenses/mit/"><img src="https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/mit.svg" height=40 />MIT License</a>
 
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
+## Acknowledgements
 
-## Create database and table
+Who helped you make this project a reality? Friends? Family? Contributors? Instructors?
 
-Create a new database called `prime_app` and create a `user` table:
+## Contacts
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
-
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
-
-## Development Setup Instructions
-
-- Run `npm install`
-- Create a `.env` file at the root of the project and paste this line into the file:
-  ```
-  SERVER_SESSION_SECRET=superDuperSecret
-  ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm run server`
-- Run `npm run client`
-- Navigate to `localhost:3000`
-
-## Debugging
-
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
-
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
-
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
-
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
-
-## Testing Routes with Postman
-
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum.
-
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
-
-1. Start the server - `npm run server`
-2. Import the sample routes JSON file [v2](./PostmanPrimeSoloRoutesv2.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-   1. `POST /api/user/register` registers a new user, see body to change username/password
-   2. `POST /api/user/login` will login a user, see body to change username/password
-   3. `GET /api/user` will get user information, by default it's not very much
-
-After running the login route above, you can try any other route you've created that requires a logged in user!
-
-## Production Build
-
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
-
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm start`
-- Navigate to `localhost:5000`
-
-## Lay of the Land
-
-There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
-
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
-
-Directory Structure:
-
-- `src/` contains the React application
-- `public/` contains static assets for the client-side
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-- `server/` contains the Express App
-
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
-
-- src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
-  - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
-  - LogOutButton/LogOutButton
-  - ProtectedRoute/ProtectedRoute
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+<a href="https://www.linkedin.com/in/https://www.linkedin.com/in/jordan-ponto/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>  <a href="mailto:Jponto93@gmail.com"><img src=https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/email_me_button_icon_151852.svg /></a>
