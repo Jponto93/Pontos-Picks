@@ -19,7 +19,7 @@
 
 A paperless way to participate in friendly competition using NFL games between friends or offices!
 
-## Screenshots
+<!-- ## Screenshots -->
 
 <!-- <img src="/images/home" /> -->
 
