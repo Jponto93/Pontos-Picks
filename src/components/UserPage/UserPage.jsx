@@ -9,7 +9,7 @@ function UserPage() {
   
   return (
     <div className="container">
-      <h1>Welcome, {user.username}!</h1>
+      <h1>Welcome {user.username}!</h1>
       <h2>Rules:</h2>
       <Paper>
         <Box p={2}>

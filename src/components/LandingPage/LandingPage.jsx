@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
+import LogOutButton from '../LogOutButton/LogOutButton';
+import { useSelector } from 'react-redux';
+import { List, ListItem, Paper, Box } from '@mui/material';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -20,8 +23,19 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
+          <Paper>
+            <Box p={2}>
+              <List>
+                <ListItem>Each member picks NFL games each week.</ListItem>
+                <ListItem>For each correct pick during the regular season, members receive one point.</ListItem>
+                <ListItem>Standings are calculated each week and for the year-to-date.</ListItem>
+                <ListItem>Earn the most points by the end of the season to win!</ListItem>
+              </List>
+            </Box>
+          </Paper>
+
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
             ut ex molestie blandit. Etiam et turpis sit amet risus mollis
             interdum. Suspendisse et justo vitae metus bibendum fringilla sed
@@ -29,27 +43,27 @@ function LandingPage() {
             elementum eget. Praesent efficitur eros vitae nunc interdum, eu
             interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
             Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+            luctus. Duis a sapien metus. */}
           </p>
 
           <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
+            {/* Praesent consectetur orci dui, id elementum eros facilisis id. Sed
             id dolor in augue porttitor faucibus eget sit amet ante. Nunc
             consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
             finibus metus facilisis. Nullam eget lectus non urna rhoncus
             accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
             euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
             lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
+            congue. */}
           </p>
 
           <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
+            {/* Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
             Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
             vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
             sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
             non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
+            amet nisi. */}
           </p>
         </div>
         <div className="grid-col grid-col_4">
